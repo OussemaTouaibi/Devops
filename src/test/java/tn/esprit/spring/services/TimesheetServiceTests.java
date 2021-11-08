@@ -1,26 +1,32 @@
 package tn.esprit.spring.services;
 
 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.apache.log4j.Logger;
 import tn.esprit.spring.entities.*;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EmployeRepository;
 import tn.esprit.spring.repository.MissionRepository;
 import tn.esprit.spring.repository.TimesheetRepository;
 
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
 
+
+
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TimesheetServiceTests {
+	
+	private static final Logger l = Logger.getLogger(TimesheetServiceTests.class);
 
     @Autowired
     TimesheetServiceImpl timesheetService;
@@ -39,6 +45,7 @@ public class TimesheetServiceTests {
 
     @Test
     public void ajouterMission() {
+    	l.info("Tester l ajout de mission");
         Mission mission = new Mission("test mission", "test description");
         int id = timesheetService.ajouterMission(mission);
         assertTrue(missionRepository.findById(id).isPresent());
@@ -46,6 +53,7 @@ public class TimesheetServiceTests {
 
     @Test
     public void affecterMissionADepartement() {
+    	l.info("Tester l affectation MissionDepartement");
         int missionId = 7;
         int depId = 24;
         timesheetService.affecterMissionADepartement(missionId, depId);
@@ -65,6 +73,7 @@ public class TimesheetServiceTests {
 
     @Test
     public void getAllEmployeByMission() {
+    	l.info("Tester l affichage d employe by misiion");
         int missionId = 7;
         List<Integer> employeList = timesheetService.getAllEmployeByMission(missionId).stream().map(Employe::getId).collect(Collectors.toList());
         assertEquals(employeList, timesheetRepository.getAllEmployeByMission(missionId).stream().map(Employe::getId).collect(Collectors.toList()));
