@@ -7,7 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Role;
-import java.text.ParseException;
 
 import static org.junit.Assert.*;
 
@@ -17,7 +16,7 @@ public class EmployeServiceImplTest {
     @Autowired
     IEmployeService ems;
     @Test
-    public void ajouterEmploye() throws ParseException {
+    public void ajouterEmploye() {
         Employe e = new Employe("bayrem","zguimi","bayrem@bayrem.com",true,Role.CHEF_DEPARTEMENT);
         assertTrue(e.getRole().equals(Role.CHEF_DEPARTEMENT));
         ems.ajouterEmploye(e);

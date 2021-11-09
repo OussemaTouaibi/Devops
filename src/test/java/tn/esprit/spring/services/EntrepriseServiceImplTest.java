@@ -21,7 +21,7 @@ public class EntrepriseServiceImplTest {
    // private static final Logger l = LogManager.getLogger(EntrepriseServiceImplTest.class);
 
     @Test
-    public void ajouterDepartement() throws ParseException {
+    public void ajouterDepartement() {
         Departement d = new Departement("test");
         es.ajouterDepartement(d);
     }
