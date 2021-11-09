@@ -69,11 +69,11 @@ public class RestControlEntreprise {
 	}
 	
  	 // http://localhost:8081/SpringMVC/servlet/getAllDepartementsNamesByEntreprise/1
-    @GetMapping(value = "getAllDepartementsNamesByEntreprise/{identreprise}")
-    @ResponseBody
-	public List<String> getAllDepartementsNamesByEntreprise(@PathVariable("identreprise") int entrepriseId) {
-		return ientrepriseservice.getAllDepartementsNamesByEntreprise(entrepriseId);
-	}
+ //   @GetMapping(value = "getAllDepartementsNamesByEntreprise/{identreprise}")
+   // @ResponseBody
+	//public List<String> getAllDepartementsNamesByEntreprise(@PathVariable("identreprise") int entrepriseId) {
+		//return ientrepriseservice.getAllDepartementsNamesByEntreprise(entrepriseId);
+	//}
 
     // URL : http://localhost:8081/SpringMVC/servlet/deleteDepartementById/3
     @DeleteMapping("/deleteDepartementById/{iddept}") 
