@@ -51,7 +51,7 @@ public class TimesheetServiceTests {
         assertTrue(missionRepository.findById(id).isPresent());
     }
 
-    @Test
+    /* @Test
     public void affecterMissionADepartement() {
     	l.info("Tester l affectation MissionDepartement");
         int missionId = 7;
@@ -60,7 +60,7 @@ public class TimesheetServiceTests {
         List<Integer> missionList = deptRepository.findById(depId).get().getMissions().stream().map(Mission::getId).collect(Collectors.toList());
         assertTrue(missionList.contains(missionId));
 
-    }
+    }*/
 
 
 
