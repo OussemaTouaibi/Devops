@@ -44,15 +44,15 @@ public class TimesheetServiceTests {
         assertTrue(missionRepository.findById(id).isPresent());
     }
 
-    @Test
-    public void affecterMissionADepartement() {
-        int missionId = 7;
-        int depId = 24;
-        timesheetService.affecterMissionADepartement(missionId, depId);
-        List<Integer> missionList = deptRepository.findById(depId).get().getMissions().stream().map(Mission::getId).collect(Collectors.toList());
-        assertTrue(missionList.contains(missionId));
+ //   @Test
+   // public void affecterMissionADepartement() {
+     //   int missionId = 7;
+       // int depId = 24;
+        //timesheetService.affecterMissionADepartement(missionId, depId);
+        //List<Integer> missionList = deptRepository.findById(depId).get().getMissions().stream().map(Mission::getId).collect(Collectors.toList());
+        //assertTrue(missionList.contains(missionId));
 
-    }
+//    }
 
 
 
