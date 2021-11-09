@@ -23,8 +23,8 @@ services:
         SPRING_DATASOURCE_PASSWORD: 123
 
     customerservice:                        
-      image: property-service1             
-      container_name: property-service-app 
+      image: timesheet-1-2.0            
+      container_name: timesheet-1-2.0-app
       build:
         context: .                          
         dockerfile: Dockerfile             
