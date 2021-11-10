@@ -11,11 +11,9 @@ tn\esprit\spring\services\IEmployeService.class
 tn\esprit\spring\entities\Mission.class
 tn\esprit\spring\entities\TimesheetPK.class
 tn\esprit\spring\repository\ContratRepository.class
-tn\esprit\spring\services\EntrepriseServiceImpl.class
 tn\esprit\spring\entities\Contrat.class
 tn\esprit\spring\entities\Entreprise.class
 tn\esprit\spring\services\ITimesheetService.class
-tn\esprit\spring\TimesheetSpringBootCoreDataJpaMvcRest1Application.class
 tn\esprit\spring\controller\RestControlTimesheet.class
 tn\esprit\spring\services\EmployeServiceImpl.class
 tn\esprit\spring\repository\TimesheetRepository.class
