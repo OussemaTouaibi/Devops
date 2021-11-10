@@ -16,7 +16,7 @@ import tn.esprit.spring.repository.EntrepriseRepository;
 @Service
 public class EntrepriseServiceImpl implements IEntrepriseService {
 	
-	private static final Logger l = Logger.getLogger(EntrepriseServiceImpl.class);
+
 
 	@Autowired
 	EntrepriseRepository entrepriseRepoistory;
@@ -24,13 +24,13 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	DepartementRepository deptRepoistory;
 
 	public int ajouterEntreprise(Entreprise entreprise) {
-		l.info(" ajouter entreprise");
+
 		entrepriseRepoistory.save(entreprise);
 		return entreprise.getId();
 	}
 
 	public int ajouterDepartement(Departement dep) {
-		l.info(" ajout département");
+
 		deptRepoistory.save(dep);
 		return dep.getId();
 	}
@@ -43,7 +43,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		// Rappel : la classe qui contient mappedBy represente le bout Slave
 		// Rappel : Dans une relation oneToMany le mappedBy doit etre du cote
 		// one.
-		l.info("affecter Departement A Entreprise");
+
 
 		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).orElse(null);
 		Departement depManagedEntity = deptRepoistory.findById(depId).orElse(null);
@@ -55,7 +55,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	}
 
 	public List<String> getAllDepartementsNamesByEntreprise(int entrepriseId) {
-		l.info("get All Departements Names By Entreprise");
+		
 		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).orElse(null);
 		List<String> depNames = new ArrayList<>();
 		if (entrepriseManagedEntity != null) {
@@ -69,7 +69,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 
 	@Transactional
 	public void deleteEntrepriseById(int entrepriseId) {
-		l.info("delete Entreprise ById");
+
 		Entreprise e = entrepriseRepoistory.findById(entrepriseId).orElse(null);
 		if (e != null) {
 			entrepriseRepoistory.delete(e);
@@ -78,7 +78,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 
 	@Transactional
 	public void deleteDepartementById(int depId) {
-		l.info("delete Departement By Id");
+
 		Departement dept = deptRepoistory.findById(depId).orElse(null);
 		if (dept != null) {
 			deptRepoistory.delete(dept);
@@ -86,7 +86,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	}
 
 	public Entreprise getEntrepriseById(int entrepriseId) {
-		l.info("get Entreprise By Id");
+
 		return entrepriseRepoistory.findById(entrepriseId).orElse(null);
 	}
 
