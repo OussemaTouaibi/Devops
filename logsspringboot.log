@@ -5291,3 +5291,33 @@ Caused by: java.net.ConnectException: Connection refused: connect
 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.15.jar:8.0.15]
 	... 51 common frames omitted
 
+2021-11-10 17:43:53.552  INFO 19204 --- [main] SpringBootCoreDataJpaMvcRest1Application : Starting TimesheetSpringBootCoreDataJpaMvcRest1Application on LAPTOP-VJBGLFQ9 with PID 19204 (started by Sissima in C:\Users\Sissima\Desktop\New folder (4)\Devops)
+2021-11-10 17:43:53.555  INFO 19204 --- [main] SpringBootCoreDataJpaMvcRest1Application : No active profile set, falling back to default profiles: default
+2021-11-10 17:43:54.509  INFO 19204 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-10 17:43:54.636  INFO 19204 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 115ms. Found 6 repository interfaces.
+2021-11-10 17:43:55.112  INFO 19204 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$783f2253] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-10 17:43:55.898  INFO 19204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8089 (http)
+2021-11-10 17:43:55.963  INFO 19204 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-10 17:43:55.964  INFO 19204 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2021-11-10 17:43:56.232  INFO 19204 --- [main] o.a.c.c.C.[.[localhost].[/SpringMVC]     : Initializing Spring embedded WebApplicationContext
+2021-11-10 17:43:56.233  INFO 19204 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2618 ms
+2021-11-10 17:43:56.448  INFO 19204 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-10 17:43:56.666  INFO 19204 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-10 17:43:56.741  INFO 19204 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-11-10 17:43:56.866  INFO 19204 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2021-11-10 17:43:56.868  INFO 19204 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-11-10 17:43:57.134  INFO 19204 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-11-10 17:43:57.414  INFO 19204 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-11-10 17:44:00.033  INFO 19204 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-10 17:44:00.563  INFO 19204 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-11-10 17:44:01.482  INFO 19204 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-10 17:44:01.559  WARN 19204 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-10 17:44:01.829  INFO 19204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8089 (http) with context path '/SpringMVC'
+2021-11-10 17:44:01.831  INFO 19204 --- [main] SpringBootCoreDataJpaMvcRest1Application : Started TimesheetSpringBootCoreDataJpaMvcRest1Application in 8.955 seconds (JVM running for 11.557)
+2021-11-10 17:44:25.536  INFO 19204 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-11-10 17:44:25.539  INFO 19204 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-10 17:44:25.545  INFO 19204 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-10 17:44:25.551  INFO 19204 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-10 17:44:25.561  INFO 19204 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
