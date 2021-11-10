@@ -53,7 +53,7 @@ public class TimesheetServiceTests {
         assertTrue(missionRepository.findById(id).isPresent());
     }
 
-    /* @Test
+    /*@Test
     public void affecterMissionADepartement() {
     	l.info("Tester l affectation MissionDepartement");
         int missionId = 7;
@@ -62,7 +62,7 @@ public class TimesheetServiceTests {
         List<Integer> missionList = deptRepository.findById(depId).get().getMissions().stream().map(Mission::getId).collect(Collectors.toList());
         assertTrue(missionList.contains(missionId));
 
-    }*/
+    } */
 
 
 
@@ -80,14 +80,4 @@ public class TimesheetServiceTests {
         List<Integer> employeList = timesheetService.getAllEmployeByMission(missionId).stream().map(Employe::getId).collect(Collectors.toList());
         assertEquals(employeList, timesheetRepository.getAllEmployeByMission(missionId).stream().map(Employe::getId).collect(Collectors.toList()));
     }
-       @Test
-    public void testAjouterTimesheet() throws ParseException{
-	   SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-    	Date d1=dateFormat.parse("2021/09/26");
-    	Date d2=dateFormat.parse("2021/11/05");
-    	TimesheetPK tspk = new TimesheetPK(1,1,d1,d2);
-    	timesheetService.ajouterTimesheet(1,1,d1,d2);
-    	assertNotNull(timesheetRepository.findBytimesheetPK(tspk)) ;
-}
-    
 }
