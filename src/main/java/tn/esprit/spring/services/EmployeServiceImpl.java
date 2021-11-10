@@ -68,17 +68,18 @@ public class EmployeServiceImpl implements IEmployeService {
 		}
 
 	}
-	@Transactional
+		@Transactional
 	public void desaffecterEmployeDuDepartement(int employeId, int depId)
 	{
-		Departement dep = deptRepoistory.findById(depId).get();
-
+		Departement dep = deptRepoistory.findById(depId).orElse(null);
+		if(dep!=null) {
 		int employeNb = dep.getEmployes().size();
 		for(int index = 0; index < employeNb; index++){
 			if(dep.getEmployes().get(index).getId() == employeId){
 				dep.getEmployes().remove(index);
 				break;//a revoir
 			}
+		}
 		}
 	}
 
