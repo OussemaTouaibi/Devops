@@ -3,7 +3,6 @@ package tn.esprit.spring.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,8 +14,6 @@ import tn.esprit.spring.repository.EntrepriseRepository;
 
 @Service
 public class EntrepriseServiceImpl implements IEntrepriseService {
-	
-
 
 	@Autowired
 	EntrepriseRepository entrepriseRepoistory;
@@ -24,13 +21,11 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	DepartementRepository deptRepoistory;
 
 	public int ajouterEntreprise(Entreprise entreprise) {
-
 		entrepriseRepoistory.save(entreprise);
 		return entreprise.getId();
 	}
 
 	public int ajouterDepartement(Departement dep) {
-
 		deptRepoistory.save(dep);
 		return dep.getId();
 	}
@@ -44,7 +39,6 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		// Rappel : Dans une relation oneToMany le mappedBy doit etre du cote
 		// one.
 
-
 		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).orElse(null);
 		Departement depManagedEntity = deptRepoistory.findById(depId).orElse(null);
 		if (entrepriseManagedEntity != null && depManagedEntity != null) {
@@ -55,7 +49,6 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	}
 
 	public List<String> getAllDepartementsNamesByEntreprise(int entrepriseId) {
-		
 		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).orElse(null);
 		List<String> depNames = new ArrayList<>();
 		if (entrepriseManagedEntity != null) {
@@ -69,7 +62,6 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 
 	@Transactional
 	public void deleteEntrepriseById(int entrepriseId) {
-
 		Entreprise e = entrepriseRepoistory.findById(entrepriseId).orElse(null);
 		if (e != null) {
 			entrepriseRepoistory.delete(e);
@@ -86,7 +78,6 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	}
 
 	public Entreprise getEntrepriseById(int entrepriseId) {
-
 		return entrepriseRepoistory.findById(entrepriseId).orElse(null);
 	}
 
