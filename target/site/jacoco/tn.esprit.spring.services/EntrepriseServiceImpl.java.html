@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EntrepriseServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Timesheet-spring-boot-core-data-jpa-mvc-REST-1</a> &gt; <a href="index.source.html" class="el_package">tn.esprit.spring.services</a> &gt; <span class="el_source">EntrepriseServiceImpl.java</span></div><h1>EntrepriseServiceImpl.java</h1><pre class="source lang-java linenums">package tn.esprit.spring.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import tn.esprit.spring.entities.Departement;
+import tn.esprit.spring.entities.Entreprise;
+import tn.esprit.spring.repository.DepartementRepository;
+import tn.esprit.spring.repository.EntrepriseRepository;
+
+@Service
+<span class="nc" id="L16">public class EntrepriseServiceImpl implements IEntrepriseService {</span>
+
+	@Autowired
+	EntrepriseRepository entrepriseRepoistory;
+	@Autowired
+	DepartementRepository deptRepoistory;
+
+	public int ajouterEntreprise(Entreprise entreprise) {
+<span class="nc" id="L24">		entrepriseRepoistory.save(entreprise);</span>
+<span class="nc" id="L25">		return entreprise.getId();</span>
+	}
+
+	public int ajouterDepartement(Departement dep) {
+<span class="nc" id="L29">		deptRepoistory.save(dep);</span>
+<span class="nc" id="L30">		return dep.getId();</span>
+	}
+
+	public void affecterDepartementAEntreprise(int depId, int entrepriseId) {
+		// Le bout Master de cette relation N:1 est departement
+		// donc il faut rajouter l'entreprise a departement
+		// ==&gt; c'est l'objet departement(le master) qui va mettre a jour
+		// l'association
+		// Rappel : la classe qui contient mappedBy represente le bout Slave
+		// Rappel : Dans une relation oneToMany le mappedBy doit etre du cote
+		// one.
+
+<span class="nc" id="L42">		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).orElse(null);</span>
+<span class="nc" id="L43">		Departement depManagedEntity = deptRepoistory.findById(depId).orElse(null);</span>
+<span class="nc bnc" id="L44" title="All 4 branches missed.">		if (entrepriseManagedEntity != null &amp;&amp; depManagedEntity != null) {</span>
+<span class="nc" id="L45">			depManagedEntity.setEntreprise(entrepriseManagedEntity);</span>
+<span class="nc" id="L46">			deptRepoistory.save(depManagedEntity);</span>
+		}
+
+<span class="nc" id="L49">	}</span>
+
+	public List&lt;String&gt; getAllDepartementsNamesByEntreprise(int entrepriseId) {
+<span class="nc" id="L52">		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).orElse(null);</span>
+<span class="nc" id="L53">		List&lt;String&gt; depNames = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">		if (entrepriseManagedEntity != null) {</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">			for (Departement dep : entrepriseManagedEntity.getDepartements()) {</span>
+<span class="nc" id="L56">				depNames.add(dep.getName());</span>
+<span class="nc" id="L57">			}</span>
+		}
+
+<span class="nc" id="L60">		return depNames;</span>
+	}
+
+	@Transactional
+	public void deleteEntrepriseById(int entrepriseId) {
+<span class="nc" id="L65">		Entreprise e = entrepriseRepoistory.findById(entrepriseId).orElse(null);</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">		if (e != null) {</span>
+<span class="nc" id="L67">			entrepriseRepoistory.delete(e);</span>
+		}
+<span class="nc" id="L69">	}</span>
+
+	@Transactional
+	public void deleteDepartementById(int depId) {
+
+<span class="nc" id="L74">		Departement dept = deptRepoistory.findById(depId).orElse(null);</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">		if (dept != null) {</span>
+<span class="nc" id="L76">			deptRepoistory.delete(dept);</span>
+		}
+<span class="nc" id="L78">	}</span>
+
+	public Entreprise getEntrepriseById(int entrepriseId) {
+<span class="nc" id="L81">		return entrepriseRepoistory.findById(entrepriseId).orElse(null);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
