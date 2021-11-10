@@ -64,20 +64,7 @@ public class TimesheetServiceTests {
 
 
 
-    @Test
-    public void findAllMissionByEmployeJPQL() {
-        int employeId = 8;
-        List<Integer> missionList = timesheetService.findAllMissionByEmployeJPQL(employeId).stream().map(Mission::getId).collect(Collectors.toList());
-        assertEquals(missionList, timesheetService.findAllMissionByEmployeJPQL(employeId).stream().map(Mission::getId).collect(Collectors.toList()));
-    }
 
-    @Test
-    public void getAllEmployeByMission() {
-    	l.info("Tester l affichage d employe by misiion");
-        int missionId = 7;
-        List<Integer> employeList = timesheetService.getAllEmployeByMission(missionId).stream().map(Employe::getId).collect(Collectors.toList());
-        assertEquals(employeList, timesheetRepository.getAllEmployeByMission(missionId).stream().map(Employe::getId).collect(Collectors.toList()));
-    }
 
     
 }
