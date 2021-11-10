@@ -88,15 +88,4 @@ public class TimesheetServiceTests {
     	assertNotNull(timesheetRepository.findBytimesheetPK(tspk)) ;
 }
     
- /*  @Test
-    public void testvaliderTimesheet() throws ParseException{ 
-    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-    	Date d1=dateFormat.parse("2021/09/26");
-    	Date d2=dateFormat.parse("2021/11/05");
-    	timesheetService.validerTimesheet(1,1,d1,d2,1);
-    	TimesheetPK tspk = new TimesheetPK(1, 1, d1, d2);
-    	Timesheet ts= new Timesheet();
-    	ts= timesheetRepository.findBytimesheetPK(tspk);
-    	assertTrue(ts.isValide());
-    }*/
 }
