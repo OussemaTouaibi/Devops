@@ -2,6 +2,7 @@ package tn.esprit.spring.services;
 
 
 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,9 @@ import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EmployeRepository;
 import tn.esprit.spring.repository.MissionRepository;
 import tn.esprit.spring.repository.TimesheetRepository;
-
+import java.text.ParseException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -78,4 +81,14 @@ public class TimesheetServiceTests {
         List<Integer> employeList = timesheetService.getAllEmployeByMission(missionId).stream().map(Employe::getId).collect(Collectors.toList());
         assertEquals(employeList, timesheetRepository.getAllEmployeByMission(missionId).stream().map(Employe::getId).collect(Collectors.toList()));
     }
+     @Test
+    public void testAjouterTimesheet() throws ParseException{
+	   SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    	Date d1=dateFormat.parse("2021/09/26");
+    	Date d2=dateFormat.parse("2021/11/05");
+    	TimesheetPK tspk = new TimesheetPK(1,1,d1,d2);
+    	timesheetService.ajouterTimesheet(1,1,d1,d2);
+    	assertNotNull(timesheetRepository.findBytimesheetPK(tspk)) ;
+}
+    
 }
