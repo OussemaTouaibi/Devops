@@ -51,7 +51,7 @@ public class TimesheetServiceTests {
         assertTrue(missionRepository.findById(id).isPresent());
     }
 
-    /* @Test
+    /*@Test
     public void affecterMissionADepartement() {
     	l.info("Tester l affectation MissionDepartement");
         int missionId = 7;
@@ -60,11 +60,22 @@ public class TimesheetServiceTests {
         List<Integer> missionList = deptRepository.findById(depId).get().getMissions().stream().map(Mission::getId).collect(Collectors.toList());
         assertTrue(missionList.contains(missionId));
 
-    }*/
+    } */
 
 
 
+    @Test
+    public void findAllMissionByEmployeJPQL() {
+        int employeId = 8;
+        List<Integer> missionList = timesheetService.findAllMissionByEmployeJPQL(employeId).stream().map(Mission::getId).collect(Collectors.toList());
+        assertEquals(missionList, timesheetService.findAllMissionByEmployeJPQL(employeId).stream().map(Mission::getId).collect(Collectors.toList()));
+    }
 
-
-    
+    @Test
+    public void getAllEmployeByMission() {
+    	l.info("Tester l affichage d employe by misiion");
+        int missionId = 7;
+        List<Integer> employeList = timesheetService.getAllEmployeByMission(missionId).stream().map(Employe::getId).collect(Collectors.toList());
+        assertEquals(employeList, timesheetRepository.getAllEmployeByMission(missionId).stream().map(Employe::getId).collect(Collectors.toList()));
+    }
 }
