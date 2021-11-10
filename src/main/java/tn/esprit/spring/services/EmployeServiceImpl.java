@@ -130,9 +130,12 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public void deleteContratById(int contratId) {
-		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
-		contratRepoistory.delete(contratManagedEntity);
-
+		Optional<Contrat> contratManagedEntity = contratRepoistory.findById(contratId);
+		if(contratManagedEntity.isPresent()) {
+			Contrat contrat = contratManagedEntity.get();
+			
+		contratRepoistory.delete(contrat);
+		}
 	}
 
 	public int getNombreEmployeJPQL() {
