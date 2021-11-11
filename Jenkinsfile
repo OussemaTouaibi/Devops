@@ -37,7 +37,7 @@ pipeline {
                 echo 'INSIDE Sonar Stage'
 
               
-                    bat "mvn -Dsonar.sources=src/main sonar:sonar"
+                    bat "mvn sonar:sonar"
                 
             }
         }
