@@ -3,6 +3,7 @@ pipeline {
     
 	environment { 
         pom = readMavenPom file: 'pom.xml'
+	DOCKER_IMAGE_VERSION = "${env.BUILD_NUMBER}"
        
 
     }
@@ -54,6 +55,18 @@ pipeline {
 			   bat "mvn dockerfile:build -Ddockerfile.repository=timesheet-spring-boot-core-data-jpa-mvc-rest-1"
 		}
     }
+		stage ('Push to registry'){
+		    steps {
+			   echo 'Inside Push to registry Stage'
+			  
+			       bat "docker login -u yassineali -p 7Octobre1998"
+			       bat "docker tag timesheet-spring-boot-core-data-jpa-mvc-rest-1:latest yassineali/timesheet-spring-boot-core-data-jpa-mvc-rest-1:${DOCKER_IMAGE_VERSION}"
+			       bat "docker push yassineali/timesheet-spring-boot-core-data-jpa-mvc-rest-1:${DOCKER_IMAGE_VERSION}"
+				
+				  
+				   
+				 }
+			   }
 		
 		
 }
