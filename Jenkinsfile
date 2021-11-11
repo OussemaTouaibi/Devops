@@ -51,7 +51,7 @@ pipeline {
 		    steps {
 			   echo 'Inside build Docker Image Stage'
 			   
-			   bat "mvn dockerfile:build -Ddockerfile.repository=Timesheet-spring-boot-core-data-jpa-mvc-REST-1"
+			   bat "mvn dockerfile:build -Ddockerfile.repository=timesheet-spring-boot-core-data-jpa-mvc-rest-1"
 		}
     }
 		
