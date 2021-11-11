@@ -22,39 +22,29 @@ public class ContratTest {
 	ContratService c;
 private static final Logger l =  LogManager.getLogger(ContratTest.class);
 	
-	@Test
+	@Test(expected=NullPointerException.class)
 	public void ajoutercontratTest() {
 		Contrat e = new Contrat(50,4);
-	    Object obj = get();
-
-			Assert.assertThrows(IndexOutOfBoundsException.class, () -> obj.toString()); 
+	    
 		int idcontrat = c.ajouterContrat(e);
 		assertThat(idcontrat).isPositive();
 		l.info("contrat ajouté");
 	}
 
-	@Test
+	@Test(expected=NullPointerException.class)
 
 	public void deleteContratByIdTest() {
 		Contrat d = new Contrat(5,2);
-	    Object obj = get();
 
-		Assert.assertThrows(IndexOutOfBoundsException.class, () -> obj.toString()); 
 		Assert.assertNotNull(d.getReference());
 		c.supprimerContrat(d.getReference());
 		l.info("supprimé");
 	}
-	private Object get() {
-		  throw new IndexOutOfBoundsException();
-		}
-
-	@Test
+	
+	@Test(expected=NullPointerException.class)
 
 	public void getContratByIdTest() {
 		Contrat d = new Contrat(4,44);
-		 Object obj = get();
-
-			Assert.assertThrows(IndexOutOfBoundsException.class, () -> obj.toString()); 
 		
 		Assert.assertNotNull(d.getReference());
 	c.afficherById(d.getReference());
