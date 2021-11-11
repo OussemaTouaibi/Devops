@@ -36,9 +36,9 @@ pipeline {
 
                 echo 'INSIDE Sonar Stage'
 
-                withSonarQubeEnv('SonarQube') {
+              
                     bat "mvn -Dsonar.sources=src/main sonar:sonar"
-                }
+                
             }
         }
 		 stage('Nexus') {
@@ -55,6 +55,7 @@ pipeline {
 			   bat "mvn dockerfile:build -Ddockerfile.repository=timesheet-spring-boot-core-data-jpa-mvc-rest-1"
 		}
     }
+/*
 		stage ('Push to registry'){
 		    steps {
 			   echo 'Inside Push to registry Stage'
@@ -67,7 +68,7 @@ pipeline {
 				   
 				 }
 			   }
-		
+		*/
 		
 }
 }
