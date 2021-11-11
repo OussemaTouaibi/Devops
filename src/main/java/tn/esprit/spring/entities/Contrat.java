@@ -34,9 +34,10 @@ public class Contrat implements Serializable {
 		super();
 	}
 	
-	public Contrat(Date dateDebut, String typeContrat, float salaire) {
-		this.dateDebut = dateDebut;
-		this.typeContrat = typeContrat;
+
+	public Contrat(int reference, float salaire) {
+		super();
+		this.reference = reference;
 		this.salaire = salaire;
 	}
 

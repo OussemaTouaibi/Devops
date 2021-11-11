@@ -24,7 +24,7 @@ import tn.esprit.spring.services.ITimesheetService;
 
 @RestController
 public class RestControlEmploye {
-
+/*
 	
 	@Autowired
 	IEmployeService iemployeservice;
@@ -174,6 +174,6 @@ public class RestControlEmploye {
 		return iemployeservice.getAllEmployes();
 	}
 
-	
+	*/
 	
 }
