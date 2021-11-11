@@ -36,9 +36,9 @@ pipeline {
 
                 echo 'INSIDE Sonar Stage'
 
-              
-                    bat "mvn sonar:sonar"
-                
+                withSonarQubeEnv('SonarQube') {
+                    bat "mvn -Dsonar.sources=src/main sonar:sonar"
+                }
             }
         }
 		 stage('Nexus') {
