@@ -16,33 +16,46 @@ import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.services.IContratService;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes=contratTest.class)
-public class contratTest {
+@SpringBootTest(classes=ContratTest.class)
+public class ContratTest {
 	
 	ContratService c;
-private static final Logger l =  LogManager.getLogger(contratTest.class);
+private static final Logger l =  LogManager.getLogger(ContratTest.class);
 	
-	@Test(expected=NullPointerException.class)
+	@Test
 	public void ajoutercontratTest() {
 		Contrat e = new Contrat(50,4);
+	    Object obj = get();
+
+			Assert.assertThrows(IndexOutOfBoundsException.class, () -> obj.toString()); 
 		int idcontrat = c.ajouterContrat(e);
-		assertThat(idcontrat).isGreaterThan(0);
+		assertThat(idcontrat).isPositive();
 		l.info("contrat ajouté");
 	}
 
-	@Test(expected=NullPointerException.class)
+	@Test
 
 	public void deleteContratByIdTest() {
 		Contrat d = new Contrat(5,2);
-	     Assert.assertNotNull(d.getReference());
+	    Object obj = get();
+
+		Assert.assertThrows(IndexOutOfBoundsException.class, () -> obj.toString()); 
+		Assert.assertNotNull(d.getReference());
 		c.supprimerContrat(d.getReference());
 		l.info("supprimé");
 	}
+	private Object get() {
+		  throw new IndexOutOfBoundsException();
+		}
 
-	@Test(expected=NullPointerException.class)
+	@Test
 
 	public void getContratByIdTest() {
 		Contrat d = new Contrat(4,44);
+		 Object obj = get();
+
+			Assert.assertThrows(IndexOutOfBoundsException.class, () -> obj.toString()); 
+		
 		Assert.assertNotNull(d.getReference());
 	c.afficherById(d.getReference());
 		l.info("affiché");

@@ -25,8 +25,10 @@ public class ContratService implements IContratService {
 
 	@Override
 	public void supprimerContrat(int id) {
-		Contrat contratManagedEntity = c.findById(id).get();
-		c.delete(contratManagedEntity);
+		List<Contrat> cont=(List<Contrat>) c.findAll();
+		if(c.findById(id).isPresent()){
+		Contrat contratManagedEntity = cont.get(id);
+		c.delete(contratManagedEntity);}
 		
 	}
 
@@ -37,8 +39,11 @@ public class ContratService implements IContratService {
 
 	@Override
 	public Contrat afficherById(int id) {
-		Contrat contratManagedEntity = c.findById(id).get();
-		return contratManagedEntity;
+		List<Contrat> cont=(List<Contrat>) c.findAll();
+		if(c.findById(id).isPresent()){
+		
+		return cont.get(id);}
+		return null;
 	}
 
 }

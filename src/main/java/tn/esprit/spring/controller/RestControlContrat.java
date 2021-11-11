@@ -19,16 +19,16 @@ public class RestControlContrat {
 IContratService c;
 @PostMapping("/ajouterContrat")
 @ResponseBody
-public Contrat ajouterContrat(@RequestBody Contrat contrat) {
-	c.ajouterContrat(contrat);
-	return contrat;
+public Contrat ajouterContrat(@RequestBody Contrat cx) {
+	c.ajouterContrat(cx);
+	return cx;
 }
 
 
 @PutMapping("/modifyContrat")
 @ResponseBody
-public void ModifyContrat(@RequestBody Contrat contrat) {
-	c.modifierContrat(contrat);
+public void modifyContrat(@RequestBody Contrat cx) {
+	c.modifierContrat(cx);
 }
 
 @DeleteMapping("/deleteontrat/{id}")
