@@ -1,7 +1,11 @@
 pipeline {
     agent any
     
-	
+	environment { 
+        pom = readMavenPom file: 'pom.xml'
+
+
+    }
     tools {
         maven 'maven'
         jdk 'jdk'
@@ -47,7 +51,7 @@ pipeline {
 		    steps {
 			   echo 'Inside build Docker Image Stage'
 			   
-			   bat "mvn dockerfile:build -Ddockerfile.repository=Timesheet-spring-boot-core-data-jpa-mvc-REST-1"
+			   bat "mvn dockerfile:build -Ddockerfile.repository=${pom.artifactId}"
 		}
     }
 		
